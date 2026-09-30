@@ -1,0 +1,231 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 890" width="1400" height="890" font-family="'Segoe UI', Ubuntu, 'Helvetica Neue', Arial, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1020"/>
+      <stop offset="0.55" stop-color="#111a3a"/>
+      <stop offset="1" stop-color="#1a0f33"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#22d3ee"/>
+      <stop offset="0.5" stop-color="#818cf8"/>
+      <stop offset="1" stop-color="#e879f9"/>
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#ffffff" stroke-opacity="0.04"/>
+    </pattern>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10Z" fill="#cbd5e1"/>
+    </marker>
+    <marker id="arrPink" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10Z" fill="#e879f9"/>
+    </marker>
+    <style>
+      .box { fill: #0f172a; fill-opacity: .88; stroke-width: 1.5; }
+      .ttl { font-size: 17px; font-weight: 700; fill: #f8fafc; }
+      .tag { font-size: 12px; font-weight: 600; text-anchor: end; }
+      .num { font-size: 14px; font-weight: 800; fill: #0b1020; text-anchor: middle; }
+      .li { font-size: 14px; fill: #cbd5e1; }
+      .foot { font-size: 12px; font-weight: 600; }
+      .flow { stroke-dasharray: 8 6; animation: dash 1.2s linear infinite; }
+      @keyframes dash { to { stroke-dashoffset: -28; } }
+    </style>
+  </defs>
+
+  <!-- background -->
+  <rect width="1400" height="890" rx="24" fill="#0b1020"/>
+  <rect width="1400" height="890" rx="24" fill="url(#bg)"/>
+  <rect width="1400" height="890" rx="24" fill="url(#grid)"/>
+  <rect x="1" y="1" width="1398" height="888" rx="23" fill="none" stroke="url(#accent)" stroke-opacity="0.45" stroke-width="2"/>
+
+  <!-- title -->
+  <text x="45" y="62" font-size="34" font-weight="800" fill="#f8fafc">CI/CD Tools Integration Flow</text>
+  <text x="45" y="94" font-size="16" fill="#94a3b8">How each tool plugs into a Node.js pipeline, from commit to monitoring</text>
+  <g font-size="13" fill="#cbd5e1" text-anchor="end">
+    <line x1="1180" y1="57" x2="1220" y2="57" stroke="#cbd5e1" stroke-width="2" marker-end="url(#arr)"/>
+    <text x="1355" y="62">main flow</text>
+    <line x1="1180" y1="85" x2="1220" y2="85" stroke="#e879f9" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#arrPink)"/>
+    <text x="1355" y="90">feedback loop</text>
+  </g>
+
+  <!-- ============ ROW A ============ -->
+  <!-- 1 Code -->
+  <g transform="translate(45 130)">
+    <rect class="box" width="290" height="180" rx="14" stroke="#22d3ee"/>
+    <path d="M14 0H276A14 14 0 0 1 290 14V44H0V14A14 14 0 0 1 14 0Z" fill="#22d3ee" fill-opacity=".14"/>
+    <circle cx="24" cy="22" r="13" fill="#22d3ee"/><text class="num" x="24" y="27">1</text>
+    <text class="ttl" x="46" y="28">Code</text><text class="tag" x="276" y="27" fill="#22d3ee">Developer</text>
+    <g class="li" fill="#22d3ee"><circle cx="20" cy="69" r="3"/><circle cx="20" cy="93" r="3"/><circle cx="20" cy="117" r="3"/><circle cx="20" cy="141" r="3"/></g>
+    <text class="li" x="32" y="74">Git · feature branches</text>
+    <text class="li" x="32" y="98">ESLint + Prettier</text>
+    <text class="li" x="32" y="122">Jest / Vitest locally</text>
+    <text class="li" x="32" y="146">npm scripts: lint, test</text>
+    <line x1="14" y1="156" x2="276" y2="156" stroke="#334155"/>
+    <text class="foot" x="20" y="172" fill="#22d3ee">git push → opens PR</text>
+  </g>
+
+  <!-- 2 Source -->
+  <g transform="translate(385 130)">
+    <rect class="box" width="290" height="180" rx="14" stroke="#38bdf8"/>
+    <path d="M14 0H276A14 14 0 0 1 290 14V44H0V14A14 14 0 0 1 14 0Z" fill="#38bdf8" fill-opacity=".14"/>
+    <circle cx="24" cy="22" r="13" fill="#38bdf8"/><text class="num" x="24" y="27">2</text>
+    <text class="ttl" x="46" y="28">Source</text><text class="tag" x="276" y="27" fill="#38bdf8">GitHub</text>
+    <g fill="#38bdf8"><circle cx="20" cy="69" r="3"/><circle cx="20" cy="93" r="3"/><circle cx="20" cy="117" r="3"/><circle cx="20" cy="141" r="3"/></g>
+    <text class="li" x="32" y="74">Pull request + code review</text>
+    <text class="li" x="32" y="98">Branch protection rules</text>
+    <text class="li" x="32" y="122">Dependabot dependency PRs</text>
+    <text class="li" x="32" y="146">GitHub Secrets store</text>
+    <line x1="14" y1="156" x2="276" y2="156" stroke="#334155"/>
+    <text class="foot" x="20" y="172" fill="#38bdf8">PR / push triggers the workflow</text>
+  </g>
+
+  <!-- 3 Build & Test -->
+  <g transform="translate(725 130)">
+    <rect class="box" width="290" height="180" rx="14" stroke="#60a5fa"/>
+    <path d="M14 0H276A14 14 0 0 1 290 14V44H0V14A14 14 0 0 1 14 0Z" fill="#60a5fa" fill-opacity=".14"/>
+    <circle cx="24" cy="22" r="13" fill="#60a5fa"/><text class="num" x="24" y="27">3</text>
+    <text class="ttl" x="46" y="28">Build &amp; Test</text><text class="tag" x="276" y="27" fill="#60a5fa">GitHub Actions</text>
+    <g fill="#60a5fa"><circle cx="20" cy="69" r="3"/><circle cx="20" cy="93" r="3"/><circle cx="20" cy="117" r="3"/><circle cx="20" cy="141" r="3"/></g>
+    <text class="li" x="32" y="74">npm ci (Node LTS, cached)</text>
+    <text class="li" x="32" y="98">npm run lint · format check</text>
+    <text class="li" x="32" y="122">Jest unit tests + coverage</text>
+    <text class="li" x="32" y="146">Playwright / Cypress E2E</text>
+    <line x1="14" y1="156" x2="276" y2="156" stroke="#334155"/>
+    <text class="foot" x="20" y="172" fill="#60a5fa">any failure blocks the merge</text>
+  </g>
+
+  <!-- 4 Security -->
+  <g transform="translate(1065 130)">
+    <rect class="box" width="290" height="180" rx="14" stroke="#fbbf24"/>
+    <path d="M14 0H276A14 14 0 0 1 290 14V44H0V14A14 14 0 0 1 14 0Z" fill="#fbbf24" fill-opacity=".14"/>
+    <circle cx="24" cy="22" r="13" fill="#fbbf24"/><text class="num" x="24" y="27">4</text>
+    <text class="ttl" x="46" y="28">Security</text><text class="tag" x="276" y="27" fill="#fbbf24">Quality gates</text>
+    <g fill="#fbbf24"><circle cx="20" cy="69" r="3"/><circle cx="20" cy="93" r="3"/><circle cx="20" cy="117" r="3"/><circle cx="20" cy="141" r="3"/></g>
+    <text class="li" x="32" y="74">CodeQL (code analysis)</text>
+    <text class="li" x="32" y="98">npm audit / Snyk (deps)</text>
+    <text class="li" x="32" y="122">Gitleaks (leaked secrets)</text>
+    <text class="li" x="32" y="146">SonarQube (quality, optional)</text>
+    <line x1="14" y1="156" x2="276" y2="156" stroke="#334155"/>
+    <text class="foot" x="20" y="172" fill="#fbbf24">results in the Security tab</text>
+  </g>
+
+  <!-- ============ ROW B (right to left) ============ -->
+  <!-- 5 Package -->
+  <g transform="translate(1065 390)">
+    <rect class="box" width="290" height="180" rx="14" stroke="#818cf8"/>
+    <path d="M14 0H276A14 14 0 0 1 290 14V44H0V14A14 14 0 0 1 14 0Z" fill="#818cf8" fill-opacity=".14"/>
+    <circle cx="24" cy="22" r="13" fill="#818cf8"/><text class="num" x="24" y="27">5</text>
+    <text class="ttl" x="46" y="28">Package</text><text class="tag" x="276" y="27" fill="#818cf8">Docker</text>
+    <g fill="#818cf8"><circle cx="20" cy="69" r="3"/><circle cx="20" cy="93" r="3"/><circle cx="20" cy="117" r="3"/><circle cx="20" cy="141" r="3"/></g>
+    <text class="li" x="32" y="74">Multi-stage Dockerfile</text>
+    <text class="li" x="32" y="98">Tag image :sha + :latest</text>
+    <text class="li" x="32" y="122">Trivy image scan</text>
+    <text class="li" x="32" y="146">Push → GHCR / Docker Hub / ECR</text>
+    <line x1="14" y1="156" x2="276" y2="156" stroke="#334155"/>
+    <text class="foot" x="20" y="172" fill="#818cf8">one image from CI to prod</text>
+  </g>
+
+  <!-- 6 Deploy -->
+  <g transform="translate(725 390)">
+    <rect class="box" width="290" height="180" rx="14" stroke="#a78bfa"/>
+    <path d="M14 0H276A14 14 0 0 1 290 14V44H0V14A14 14 0 0 1 14 0Z" fill="#a78bfa" fill-opacity=".14"/>
+    <circle cx="24" cy="22" r="13" fill="#a78bfa"/><text class="num" x="24" y="27">6</text>
+    <text class="ttl" x="46" y="28">Deploy</text><text class="tag" x="276" y="27" fill="#a78bfa">CD</text>
+    <g fill="#a78bfa"><circle cx="20" cy="69" r="3"/><circle cx="20" cy="93" r="3"/><circle cx="20" cy="117" r="3"/><circle cx="20" cy="141" r="3"/></g>
+    <text class="li" x="32" y="74">SSH → docker compose up -d</text>
+    <text class="li" x="32" y="98">or PM2 reload (plain VPS)</text>
+    <text class="li" x="32" y="122">or Helm + Argo CD (K8s)</text>
+    <text class="li" x="32" y="146">Approval gate: environments</text>
+    <line x1="14" y1="156" x2="276" y2="156" stroke="#334155"/>
+    <text class="foot" x="20" y="172" fill="#a78bfa">smoke test GET /health</text>
+  </g>
+
+  <!-- 7 Serve -->
+  <g transform="translate(385 390)">
+    <rect class="box" width="290" height="180" rx="14" stroke="#c084fc"/>
+    <path d="M14 0H276A14 14 0 0 1 290 14V44H0V14A14 14 0 0 1 14 0Z" fill="#c084fc" fill-opacity=".14"/>
+    <circle cx="24" cy="22" r="13" fill="#c084fc"/><text class="num" x="24" y="27">7</text>
+    <text class="ttl" x="46" y="28">Serve</text><text class="tag" x="276" y="27" fill="#c084fc">Edge</text>
+    <g fill="#c084fc"><circle cx="20" cy="69" r="3"/><circle cx="20" cy="93" r="3"/><circle cx="20" cy="117" r="3"/><circle cx="20" cy="141" r="3"/></g>
+    <text class="li" x="32" y="74">DNS A record → server IP</text>
+    <text class="li" x="32" y="98">Nginx proxy :443 → :3000</text>
+    <text class="li" x="32" y="122">Certbot / Let's Encrypt SSL</text>
+    <text class="li" x="32" y="146">Caddy / Traefik (alternatives)</text>
+    <line x1="14" y1="156" x2="276" y2="156" stroke="#334155"/>
+    <text class="foot" x="20" y="172" fill="#c084fc">users reach the app over HTTPS</text>
+  </g>
+
+  <!-- 8 Monitor -->
+  <g transform="translate(45 390)">
+    <rect class="box" width="290" height="180" rx="14" stroke="#e879f9"/>
+    <path d="M14 0H276A14 14 0 0 1 290 14V44H0V14A14 14 0 0 1 14 0Z" fill="#e879f9" fill-opacity=".14"/>
+    <circle cx="24" cy="22" r="13" fill="#e879f9"/><text class="num" x="24" y="27">8</text>
+    <text class="ttl" x="46" y="28">Monitor</text><text class="tag" x="276" y="27" fill="#e879f9">Observe</text>
+    <g fill="#e879f9"><circle cx="20" cy="69" r="3"/><circle cx="20" cy="93" r="3"/><circle cx="20" cy="117" r="3"/><circle cx="20" cy="141" r="3"/></g>
+    <text class="li" x="32" y="74">Prometheus scrapes /metrics</text>
+    <text class="li" x="32" y="98">Grafana dashboards + alerts</text>
+    <text class="li" x="32" y="122">Loki logs · Sentry errors</text>
+    <text class="li" x="32" y="146">Uptime Kuma health checks</text>
+    <line x1="14" y1="156" x2="276" y2="156" stroke="#334155"/>
+    <text class="foot" x="20" y="172" fill="#e879f9">alerts → Slack / email / Telegram</text>
+  </g>
+
+  <!-- ============ ARROWS ============ -->
+  <g stroke="#cbd5e1" stroke-width="2.5" fill="none" marker-end="url(#arr)">
+    <line class="flow" x1="337" y1="220" x2="381" y2="220"/>
+    <line class="flow" x1="677" y1="220" x2="721" y2="220"/>
+    <line class="flow" x1="1017" y1="220" x2="1061" y2="220"/>
+    <line class="flow" x1="1210" y1="312" x2="1210" y2="386"/>
+    <line class="flow" x1="1063" y1="480" x2="1019" y2="480"/>
+    <line class="flow" x1="723" y1="480" x2="679" y2="480"/>
+    <line class="flow" x1="383" y1="480" x2="339" y2="480"/>
+  </g>
+  <line class="flow" x1="190" y1="388" x2="190" y2="314" stroke="#e879f9" stroke-width="2.5" marker-end="url(#arrPink)"/>
+  <text x="1222" y="354" font-size="12" font-weight="600" fill="#cbd5e1">merge to main</text>
+  <text x="202" y="354" font-size="12" font-weight="600" fill="#e879f9">alert → fix → push again</text>
+
+  <!-- ============ CROSS-CUTTING ============ -->
+  <g transform="translate(45 610)">
+    <rect class="box" width="640" height="110" rx="14" stroke="#34d399" stroke-dasharray="6 5"/>
+    <text class="ttl" x="20" y="34">Secrets Management</text>
+    <text class="tag" x="620" y="33" fill="#34d399">used in steps 3 · 5 · 6</text>
+    <text class="li" x="20" y="64">GitHub Secrets · HashiCorp Vault · AWS Secrets Manager</text>
+    <text class="li" x="20" y="90" fill="#94a3b8">SSH keys, registry tokens and SENTRY_DSN are injected at runtime, never committed</text>
+  </g>
+  <g transform="translate(715 610)">
+    <rect class="box" width="640" height="110" rx="14" stroke="#fb923c" stroke-dasharray="6 5"/>
+    <text class="ttl" x="20" y="34">Infrastructure as Code</text>
+    <text class="tag" x="620" y="33" fill="#fb923c">runs before step 6</text>
+    <text class="li" x="20" y="64">Terraform / OpenTofu · Ansible · Pulumi</text>
+    <text class="li" x="20" y="90" fill="#94a3b8">Provisions the VPS or cloud and installs Docker + Nginx the same way every time</text>
+  </g>
+
+  <!-- ============ BENEFITS ============ -->
+  <text x="45" y="772" font-size="15" font-weight="700" fill="#f8fafc" letter-spacing="1.5">HOW CI/CD HELPS</text>
+  <g text-anchor="middle">
+    <g transform="translate(46 790)">
+      <rect width="244" height="60" rx="12" fill="#22d3ee" fill-opacity=".1" stroke="#22d3ee" stroke-opacity=".5"/>
+      <text x="122" y="26" font-size="15" font-weight="700" fill="#a5f3fc">Fast feedback</text>
+      <text x="122" y="46" font-size="12" fill="#cbd5e1">Lint + tests on every push</text>
+    </g>
+    <g transform="translate(312 790)">
+      <rect width="244" height="60" rx="12" fill="#818cf8" fill-opacity=".1" stroke="#818cf8" stroke-opacity=".5"/>
+      <text x="122" y="26" font-size="15" font-weight="700" fill="#c7d2fe">Consistent builds</text>
+      <text x="122" y="46" font-size="12" fill="#cbd5e1">Same image from CI to prod</text>
+    </g>
+    <g transform="translate(578 790)">
+      <rect width="244" height="60" rx="12" fill="#fbbf24" fill-opacity=".1" stroke="#fbbf24" stroke-opacity=".5"/>
+      <text x="122" y="26" font-size="15" font-weight="700" fill="#fde68a">Security gates</text>
+      <text x="122" y="46" font-size="12" fill="#cbd5e1">Vulns &amp; secrets caught early</text>
+    </g>
+    <g transform="translate(844 790)">
+      <rect width="244" height="60" rx="12" fill="#a78bfa" fill-opacity=".1" stroke="#a78bfa" stroke-opacity=".5"/>
+      <text x="122" y="26" font-size="15" font-weight="700" fill="#ddd6fe">Zero-touch deploys</text>
+      <text x="122" y="46" font-size="12" fill="#cbd5e1">Merge to main = live</text>
+    </g>
+    <g transform="translate(1110 790)">
+      <rect width="244" height="60" rx="12" fill="#e879f9" fill-opacity=".1" stroke="#e879f9" stroke-opacity=".5"/>
+      <text x="122" y="26" font-size="15" font-weight="700" fill="#f5d0fe">Observe &amp; roll back</text>
+      <text x="122" y="46" font-size="12" fill="#cbd5e1">Alerts + redeploy any past SHA</text>
+    </g>
+  </g>
+</svg>
